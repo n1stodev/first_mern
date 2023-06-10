@@ -4,7 +4,7 @@ import Navbar from './components/navbar/Navbar';
 import Home from './router/home/Home'
 import Blog from './router/blog/Blog'
 import Comment from './router/comments/Comment';
-import SingleBlog from './router/singleBlog/SingleBlog';
+import SingleBlog from './router/single-blog/SingleBlog';
 
 function App() {
   return (

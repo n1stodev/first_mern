@@ -1,0 +1,110 @@
+.single-blogs {
+    width: 100%;
+    height: 550px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 65px;
+}
+
+.single_blog {
+    padding: 20px;
+    background: #fff;
+    scale: 1.2;
+    border-radius: 20px;
+}
+
+.single_blog h2 {
+    width: 240px;
+    height: 140px;
+    background: dodgerblue;
+    border-radius: 15px;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 100px;
+    text-transform: uppercase;
+}
+
+.single_blog .tags {
+    border-top: 1px solid #eee;
+    padding-top: 20px;
+    height: auto;
+}
+
+.single_blog p {
+    padding-bottom: 5px;
+    font-size: 17px;
+}
+
+.single-blog-comments {
+    padding: 20px;
+    background: #fff;
+    border-radius: 15px;
+    display: flex;
+    width: 280px;
+    flex-direction: column;
+    position: relative;
+    height: 310px;
+    align-items: flex-start;
+    justify-content: start;
+    scale: 1.2;
+}
+
+.single_comments {
+    width: 100%;
+    height: 240px;
+    display: flex;
+    overflow: auto;
+    align-items: flex-start;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.single_comments::-webkit-scrollbar {
+    width: 0;
+}
+
+.single_comment_form {
+    width: 240px;
+    height: 30px;
+    position: absolute;
+    bottom: 10px;
+    left: 20px;
+    background: #fff;
+}
+
+.single_comment_form input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    text-indent: 10px;
+    border-radius: 0 0 8px 8px;
+    outline: none;
+    border-bottom: 1px solid #eee;
+    font-size: 15px;
+}
+
+.single-blog-comments .comment {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 5px;
+    height: auto;
+    background: #eee;
+    border-radius: 7px;
+    margin-bottom: 5px;
+}
+
+.single-blog-comments .comment h3 {
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #fff;
+}

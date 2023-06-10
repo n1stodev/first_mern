@@ -15,8 +15,8 @@ router.get('/', async (req, res) => {
 router.get('/single/:id', async (req, res) => {
     try {
         const { id } = req.params
-        const blogs = await Blogs.findById(id)
-        res.status(200).json({ variant: "success", msg: "All blogs", innerData: blogs })
+        const blog = await Blogs.findById(id)
+        res.status(200).json({ variant: "success", msg: "one blog", innerData: blog })
     }
     catch {
         res.status(500).json({ variant: "error", msg: "server error", innerData: null })

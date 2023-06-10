@@ -1,10 +1,11 @@
-import React, { useState, useEffect } from 'react'
+import React from 'react'
 import axios from '../../api'
 import './Blogs.css'
 import { BsFillTrashFill, BsPencilFill } from 'react-icons/bs'
 import { reverseBlog } from '../../context/reloadBlog'
 import { useSelector, useDispatch } from 'react-redux'
 import { useFetch } from '../../hooks/useFetch'
+import { Link } from 'react-router-dom'
 
 function Blogs() {
     const reloadBlog = useSelector(s => s.reloadBlog.value)
@@ -13,8 +14,14 @@ function Blogs() {
     const handleDelete = async (id) => {
         await axios.delete(`/blogs/${id}`)
             .then(res =>
-                dispatch(reverseBlog()))
+                dispatch(reverseBlog())
+            )
             .catch(res => console.log(res))
+    }
+    if (loading) {
+        return <div>
+            <h2>Loading...</h2>
+        </div>
     }
     return (
         <div className="blogs">
@@ -29,8 +36,10 @@ function Blogs() {
                                 <BsFillTrashFill onClick={(data) => handleDelete(data._id)} />
                             </span>
                         </div>
-                        <h4 className="title">{data.title}</h4>
-                        <p className="info">{data.info}</p>
+                        <Link to={`/single/${data._id}`}>
+                            <h4 className="title">{data.title}</h4>
+                            <p className="info">{data.info}</p>
+                        </Link>
                         <div className="tags">
                             {
                                 data.tags.map((e, inx) =>

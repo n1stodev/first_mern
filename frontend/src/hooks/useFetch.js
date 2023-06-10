@@ -3,16 +3,14 @@ import axios from '../api'
 
 export const useFetch = (api, reload) => {
     const [loading, setLoading] = useState(false)
-    const [data, setData] = useState(null)
+    const [data, setData] = useState([])
     const [error, setError] = useState("")
 
     useEffect(() => {
         setLoading(true)
         axios.get(api)
             .then(res => {
-                if (res?.data?.innerData) {
-                    setData(res.data.innerData)
-                }
+                setData(res.data.innerData)
             })
             .catch(err => {
                 if (err?.response?.data?.msg) {

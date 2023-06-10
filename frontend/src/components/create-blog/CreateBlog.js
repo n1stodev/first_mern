@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import axios from '../../api'
 import { useDispatch } from 'react-redux'
 import { reverseBlog } from '../../context/reloadBlog'
+import './CreateBlog.css'
 
 const initialState = {
     title: "",

@@ -12,6 +12,17 @@ router.get("/", async (req, res) => {
     }
 })
 
+router.get("/single/:id", async (req, res) => {
+    try {
+        const { id } = req.params
+        const comment = await Comments.find({ blogId: id })
+        res.status(200).json({ variant: "success", msg: "one comment", innerData: comment })
+    }
+    catch {
+        res.status(500).json({ variant: "error", msg: "server error", innerData: null })
+    }
+})
+
 router.post('/', async (req, res) => {
     try {
         const { error } = validateComment(req.body)
@@ -20,6 +31,17 @@ router.post('/', async (req, res) => {
         }
         const newComment = await Comments.create(req.body)
         res.status(201).json({ variant: "success", msg: "New Comment", innerData: newComment })
+    }
+    catch {
+        res.status(500).json({ variant: "error", msg: "server error", innerData: null })
+    }
+})
+
+router.delete('/:id', async (req, res) => {
+    try {
+        const { id } = req.params
+        await Comments.findByIdAndRemove(id)
+        res.status(201).json({ variant: "success", msg: 'succesfully deleted', innerData: null })
     }
     catch {
         res.status(500).json({ variant: "error", msg: "server error", innerData: null })
