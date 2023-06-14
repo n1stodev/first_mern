@@ -17,12 +17,14 @@ app.get('/', async (req, res) => {
     res.json("app is running")
 })
 const Blogs = require('./router/blog')
-// const Comments = require('./router/comment')
+const Posts = require('./router/post')
 const Comments = require('./router/newComment')
+const User = require('./router/user')
 
-// app.use('/comments', Comments)
 app.use('/comments', Comments)
 app.use('/blogs', Blogs)
+app.use('/posts', Posts)
+app.use('/user', User)
 
 const PORT = 8000
 
